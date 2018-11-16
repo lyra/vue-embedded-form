@@ -1,0 +1,16 @@
+version: "2.2"
+services:
+  vue2:
+    build: ./docker/build/vue2/.
+    container_name: vue_embedded_form_compiler
+    working_dir: /opt/code
+    volumes:
+      - ".:/opt/code:rw"
+
+  nginxvue2:
+    image: nginx:1.14.1-alpine
+    container_name: vue_embedded_form_nginx
+    volumes:
+      - ".:/usr/share/nginx/html:rw"
+    ports:
+      - "17001:80"
