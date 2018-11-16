@@ -84,11 +84,12 @@ lyra-form(
     .kr-form-error
 ```
 
-## Example
+## Example
 
 Example                              | Description
 ------------------------------------ | ---------------------------------------------------
-[minimal](exmaples/minimal/)         | a minimal example using vue-cli
+[minimal](examples/minimal)          | a minimal example using vue-cli
+[minimal](examples/pre_loaded)       | pre-load the payment form to get it as fast as possible
 
 ## Configuration
 

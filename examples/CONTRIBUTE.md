@@ -44,6 +44,6 @@ TODO
 Write the following examples:
 
 - minimal: a basic example using cli basic default boilerplate
-- pre-loaded: a button that display the form as quick a possible
+- pre_loaded: a button that display the form as quick a possible
 
 Each example should be documented and tested.

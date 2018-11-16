@@ -1,4 +1,4 @@
-# Payment from from scratch with vue-cli
+# Payment form from scratch with vue-cli
 
 This page explain how-to create a dynamic payment form from scratch using
 vue.js and vue-cli.
