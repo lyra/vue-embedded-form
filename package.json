@@ -2,7 +2,7 @@
   "name": "@lyracom/vue-embedded-form",
   "version": "0.0.1",
   "description": "Vue Lyra embedded form",
-  "main": "src/index.js",
+  "main": "form/index.js",
   "scripts": {
     "test": "yarn test"
   },
