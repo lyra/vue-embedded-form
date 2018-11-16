@@ -1,0 +1,25 @@
+version: "2.2"
+services:
+  node:
+    image: node:8.11.4-stretch
+    container_name: vue_embedded_form_node
+    working_dir: /opt/code
+    volumes:
+      - "./form:/opt/code:rw"
+    command: sleep 365d
+
+  vue2:
+    build: ./docker/build/vue2/.
+    container_name: vue_embedded_form_compiler
+    working_dir: /opt/code
+    volumes:
+      - "./form:/opt/code/src/lyra_form:rw"
+      - "./src/lyra_form:/opt/code:rw"
+
+  nginxvue2:
+    image: nginx:1.14.1-alpine
+    container_name: vue_embedded_form_nginx
+    volumes:
+      - "./src/lyra_form:/usr/share/nginx/html:rw"
+    ports:
+      - "17001:80"

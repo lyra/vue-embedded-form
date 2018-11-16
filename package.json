@@ -1,0 +1,26 @@
+{
+  "name": "@lyracom/vue-embedded-form",
+  "version": "0.0.1",
+  "description": "Vue Lyra embedded form",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyra/vue-embedded-form.git"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "embedded",
+    "form",
+    "lyra"
+  ],
+  "author": "Lyra Network",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyra/vue-embedded-form/issues"
+  },
+  "homepage": "https://github.com/lyra/vue-embedded-form#readme"
+}
