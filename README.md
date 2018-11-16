@@ -6,6 +6,7 @@
 - [Usage](#usage)
     - [Component as HTML](#with-html)
     - [Component as Pug](#with-pug)
+- [Configuration](#configuration)
 
 ## Installation
 
@@ -34,6 +35,7 @@ import LyraForm from "@lyracom/vue-embedded-form"
 // Configure your endpoint of payment
 const options = {
     clientSrc: 'https://api.payzen.eu',
+    theme: "classic",
     publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
 };
 
@@ -81,3 +83,17 @@ lyra-form(
     // error zone
     .kr-form-error
 ```
+
+## Configuration
+
+### Theme
+
+The theme property can be configured on the options object argument of the
+LyraForm plugin.
+
+#### Available themes
+
+- classic
+- material
+
+If no **theme** is configured, no CSS will be applied to the final form.

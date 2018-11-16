@@ -1,3 +1,24 @@
+
+const themeLoader = (clientSrc, theme, cb) => {
+    if (!theme) return cb();
+
+    // Javascript
+    const themeJS = `${clientSrc}/static/js/krypton-client/V4.0/ext/${theme}.js`;
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = themeJS;
+    document.getElementsByTagName('body')[0].appendChild(script);
+
+    // CSS
+    const themeCSS = `${clientSrc}/static/js/krypton-client/V4.0/ext/${theme}-reset.css`;
+    let link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = themeCSS;
+    document.getElementsByTagName('body')[0].appendChild(link);
+
+    setTimeout(cb, 0);
+}
+
 export default {
     install: (Vue, options) => {
         Vue.component('lyra-form', {
@@ -70,19 +91,7 @@ export default {
                     }, 25);
                 },
                 setupTheme() {
-                    // Javascript
-                    const themeJS = `${options.clientSrc}/static/js/krypton-client/V4.0/ext/${this.krTheme}.js`;
-                    let script = document.createElement('script');
-                    script.type = 'text/javascript';
-                    script.src = themeJS;
-                    document.getElementsByTagName('body')[0].appendChild(script);
-
-                    // CSS
-                    const themeCSS = `${options.clientSrc}/static/js/krypton-client/V4.0/ext/${this.krTheme}-reset.css`;
-                    let link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = themeCSS;
-                    document.getElementsByTagName('body')[0].appendChild(link);
+                    themeLoader(options.clientSrc, this.krTheme, function() {});
                 }
             }
         })
@@ -90,14 +99,16 @@ export default {
         Vue.mixin({
             created() {
                 if(!options.clientLoaded) {
-                    // Load the script
-                    let script = document.createElement('script');
-                    script.type = 'text/javascript';
-                    script.src = `${options.clientSrc}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
-                    script.setAttribute("kr-public-key", options.publicKey);
-                    options.clientLoaded = true;
+                    themeLoader(options.clientSrc, options.theme, () => {
+                        // Load the script
+                        let script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = `${options.clientSrc}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+                        script.setAttribute("kr-public-key", options.publicKey);
+                        options.clientLoaded = true;
 
-                    document.getElementsByTagName('body')[0].appendChild(script);
+                        document.getElementsByTagName('body')[0].appendChild(script);
+                    });
                 }
             }
         });
