@@ -59,8 +59,6 @@ Now, you can add the component to your Vue views or components as:
 
     <!-- error zone -->
     <div class="kr-form-error"></div>
-
-  </div>
 </lyra-form>
 ```
 

@@ -71,14 +71,14 @@ export default {
                 },
                 setupTheme() {
                     // Javascript
-                    const themeJS = `${options.clientSrc}/static/js/krypton-client/dev/ext/${this.krTheme}.js`;
+                    const themeJS = `${options.clientSrc}/static/js/krypton-client/V4.0/ext/${this.krTheme}.js`;
                     let script = document.createElement('script');
                     script.type = 'text/javascript';
                     script.src = themeJS;
                     document.getElementsByTagName('body')[0].appendChild(script);
 
                     // CSS
-                    const themeCSS = `${options.clientSrc}/static/js/krypton-client/dev/ext/${this.krTheme}-reset.css`;
+                    const themeCSS = `${options.clientSrc}/static/js/krypton-client/V4.0/ext/${this.krTheme}-reset.css`;
                     let link = document.createElement('link');
                     link.rel = 'stylesheet';
                     link.href = themeCSS;
@@ -93,7 +93,7 @@ export default {
                     // Load the script
                     let script = document.createElement('script');
                     script.type = 'text/javascript';
-                    script.src = `${options.clientSrc}/static/js/krypton-client/dev/stable/kr-payment-form.min.js`;
+                    script.src = `${options.clientSrc}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
                     script.setAttribute("kr-public-key", options.publicKey);
                     options.clientLoaded = true;
 
