@@ -25,19 +25,12 @@ You should add widely used badges:
 
 ## component configuration
 
-There is 3 configuration levels you should provide and test
+There are 3 configuration levels you should provide and test.
+See vue.js readme file sections:
 
-### setup parameters
-
-TODO
-
-### template parameters
-
-TODO
-
-### runtime parameters
-
-TODO
+- setup parameters
+- template parameters
+- runtime parameters
 
 ## Exmaples
 

@@ -89,16 +89,49 @@ lyra-form(
 Example                              | Description
 ------------------------------------ | ---------------------------------------------------
 [minimal](examples/minimal)          | a minimal example using vue-cli
-[minimal](examples/pre_loaded)       | pre-load the payment form to get it as fast as possible
+[pre-loaded](examples/pre_loaded)    | pre-load the payment form to get it as fast as possible
 
-## Configuration
+## Parameters
 
-### Theme
+### setup parameters
+
+The following parameters are defined when the component is loaded. for example, for **clientSrc**:
+
+```javascript
+// Import the library and get the plugin for Vue2
+import LyraForm from "@lyracom/vue-embedded-form"
+
+// Configure your endpoint of payment
+const options = {
+    clientSrc: 'https://api.payzen.eu',
+    (...)
+};
+
+Vue.use(LyraForm, options);
+```
+
+Avialable parameters are:
+
+parameter         | mandatory | Description
+------------------|-----------|-----------------
+clientDomain      | yes       | javascript client domain name, like https://api.payzen.eu
+theme             | no        | pre-defined theme, like classic or material
+publicKey         | yes       |
+
+### template parameters
+
+TODO
+
+### Runtime parameters
+
+TODO
+
+## Paremeters reference
+
+### theme
 
 The theme property can be configured on the options object argument of the
-LyraForm plugin.
-
-#### Available themes
+LyraForm plugin. Available themes are:
 
 - classic
 - material
