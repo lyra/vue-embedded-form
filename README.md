@@ -84,6 +84,12 @@ lyra-form(
     .kr-form-error
 ```
 
+## Example
+
+Example                              | Description
+------------------------------------ | ---------------------------------------------------
+[minimal](exmaples/minimal/)         | a minimal example using vue-cli
+
 ## Configuration
 
 ### Theme

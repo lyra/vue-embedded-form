@@ -7,12 +7,16 @@ vue.js and vue-cli.
 
 First, create the vue-cli HelloWorld project:
 
-    vue create vue-embedded-test
+```sh
+vue create vue-embedded-test
+```
 
 Run and test it:
 
-    cd vue-embedded-test
-    npm run serve
+```sh
+cd vue-embedded-test
+npm run serve
+```
 
 see the result on http://localhost:8081/
 
@@ -22,106 +26,95 @@ For more  details, see https://cli.vuejs.org/guide/creating-a-project.html
 
 First, Add the payment form component:
 
-    npm install --save @lyracom/vue-embedded-form
+```sh
+npm install --save @lyracom/vue-embedded-form
+```
 
 Create src/components/PaymentForm.vue with:
 
-    <template>
-        <lyra-form kr-form-token="DEMO-TOKEN-TO-BE-REPLACED"
-                kr-language="en-EN"
-                kr-theme="classic"
-                kr-post-url-success="paid.php">
+```html
+<template>
+    <lyra-form kr-form-token="DEMO-TOKEN-TO-BE-REPLACED"
+            kr-language="en-EN"
+            kr-theme="classic"
+            kr-post-url-success="paid.php">
 
-            <!-- payment form fields -->
-            <div class="kr-pan"></div>
-            <div class="kr-expiry"></div>
-            <div class="kr-security-code"></div>
+        <!-- payment form fields -->
+        <div class="kr-pan"></div>
+        <div class="kr-expiry"></div>
+        <div class="kr-security-code"></div>
 
-            <!-- payment form submit button -->
-            <button class="kr-payment-button"></button>
+        <!-- payment form submit button -->
+        <button class="kr-payment-button"></button>
 
-            <!-- error zone -->
-            <div class="kr-form-error"></div>
-        </lyra-form>
-    </template>
+        <!-- error zone -->
+        <div class="kr-form-error"></div>
+    </lyra-form>
+</template>
 
-    <script>
-    export default {
-    name: 'PaymentForm',
-    }
-    </script>
+<script>
+export default {
+name: 'PaymentForm',
+}
+</script>
+```
 
 Remove HelloWorld.vue, and add in src/main.js line 3:
 
-    // import the compoment
-    import LyraForm from "@lyracom/vue-embedded-form"
+```javascript
+// import the compoment
+import LyraForm from "@lyracom/vue-embedded-form"
 
-    //define component options
-    const options = {
-    clientSrc: 'https://api.payzen.eu',
-    publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
-    };
+//define component options
+const options = {
+clientSrc: 'https://api.payzen.eu',
+publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
+};
 
-    // Load the component
-    Vue.use(LyraForm, options);
-
-Create a basic PaymentForm component src/components/PaymentForm.vue:
-
-    <template>
-        <lyra-form kr-form-token="DEMO-TOKEN-TO-BE-REPLACED"
-                   kr-language="es-ES"
-                   kr-theme="classic"
-                   kr-post-url-success="paid.php">
-
-            <!-- payment form fields -->
-            <div class="kr-pan"></div>
-            <div class="kr-expiry"></div>
-            <div class="kr-security-code"></div>
-
-            <!-- payment form submit button -->
-            <button class="kr-payment-button"></button>
-
-            <!-- error zone -->
-            <div class="kr-form-error"></div>
-        </lyra-form>
-    </template>
-
-    <script>
-    export default {
-    name: 'PaymentForm',
-    }
-    </script>
+// Load the component
+Vue.use(LyraForm, options);
+```
 
 In src/App.vue, replace:
 
-    import HelloWorld from './components/HelloWorld.vue'
+```javascript
+import HelloWorld from './components/HelloWorld.vue'
+```
 
 with:
 
-    import PaymentForm from './components/PaymentForm.vue'
+```javascript
+import PaymentForm from './components/PaymentForm.vue'
+```
 
 and update component list to:
 
-    export default {
-        name: 'app',
-        components: {
-            PaymentForm
-        }
+```javascript
+export default {
+    name: 'app',
+    components: {
+        PaymentForm
     }
+}
+```
 
 ## Use it
 
 In src/App.vue, update div (id=app) to:
 
-    <div id="app">
-        <PaymentForm />
-    </div>
+```html
+<div id="app">
+    <PaymentForm />
+</div>
+```
 
-go to http://localhost:8081/ and enjoy.
+go to http://localhost:8081/, enjoy.
 
 ## Run it from github
 
 You can try the current example from the current github repository doing:
 
-    npm install
-    npm run server
+```sh
+npm install
+npm run server
+```
