@@ -1,4 +1,4 @@
-# Lyra Vue Embedded Form
+# Vue Embedded Form
 
 - [Installation](#installation)
     - [Installation with Yarn](#with-yarn)
