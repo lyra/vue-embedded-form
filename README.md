@@ -32,7 +32,7 @@ You can add a form to any Vue2 application as follows:
 // Import the library and get the plugin for Vue2
 import LyraForm from "@lyracom/vue-embedded-form"
 
-// Configure your endpoint of payment
+//define component setup options
 const setup = {
     clientDomain: 'https://api.payzen.eu',
     theme: "classic",

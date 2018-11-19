@@ -32,7 +32,7 @@ See vue.js readme file sections:
 - template parameters
 - runtime parameters
 
-## Exmaples
+## Examples
 
 Write the following examples:
 
