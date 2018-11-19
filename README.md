@@ -95,19 +95,19 @@ Example                              | Description
 
 ### setup parameters
 
-The following parameters are defined when the component is loaded. for example, for **clientSrc**:
+The following parameters are defined when the component is loaded. for example, for **clientDomain**:
 
 ```javascript
 // Import the library and get the plugin for Vue2
 import LyraForm from "@lyracom/vue-embedded-form"
 
 // Configure your endpoint of payment
-const options = {
-    clientSrc: 'https://api.payzen.eu',
+const setup = {
+    clientDomain: 'https://api.payzen.eu',
     (...)
 };
 
-Vue.use(LyraForm, options);
+Vue.use(LyraForm, setup);
 ```
 
 Avialable parameters are:
@@ -130,7 +130,7 @@ TODO
 
 ### theme
 
-The theme property can be configured on the options object argument of the
+The theme property can be configured on the setup object argument of the
 LyraForm plugin. Available themes are:
 
 - classic
