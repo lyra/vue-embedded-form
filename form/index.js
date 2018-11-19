@@ -1,16 +1,16 @@
 
-const themeLoader = (clientSrc, theme, cb) => {
+const themeLoader = (clientDomain, theme, cb) => {
     if (!theme) return cb();
 
     // Javascript
-    const themeJS = `${clientSrc}/static/js/krypton-client/V4.0/ext/${theme}.js`;
+    const themeJS = `${clientDomain}/static/js/krypton-client/V4.0/ext/${theme}.js`;
     let script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = themeJS;
     document.getElementsByTagName('body')[0].appendChild(script);
 
     // CSS
-    const themeCSS = `${clientSrc}/static/js/krypton-client/V4.0/ext/${theme}-reset.css`;
+    const themeCSS = `${clientDomain}/static/js/krypton-client/V4.0/ext/${theme}-reset.css`;
     let link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = themeCSS;
@@ -20,7 +20,7 @@ const themeLoader = (clientSrc, theme, cb) => {
 }
 
 export default {
-    install: (Vue, options) => {
+    install: (Vue, setup) => {
         Vue.component('lyra-form', {
             name: "lyra-form",
             render: function (createElement) {
@@ -91,21 +91,21 @@ export default {
                     }, 25);
                 },
                 setupTheme() {
-                    themeLoader(options.clientSrc, this.krTheme, function() {});
+                    themeLoader(setup.clientDomain, this.krTheme, function() {});
                 }
             }
         })
 
         Vue.mixin({
             created() {
-                if(!options.clientLoaded) {
-                    themeLoader(options.clientSrc, options.theme, () => {
+                if(!setup.clientLoaded) {
+                    themeLoader(setup.clientDomain, setup.theme, () => {
                         // Load the script
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
-                        script.src = `${options.clientSrc}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
-                        script.setAttribute("kr-public-key", options.publicKey);
-                        options.clientLoaded = true;
+                        script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+                        script.setAttribute("kr-public-key", setup.publicKey);
+                        setup.clientLoaded = true;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });

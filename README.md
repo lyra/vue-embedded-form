@@ -33,13 +33,13 @@ You can add a form to any Vue2 application as follows:
 import LyraForm from "@lyracom/vue-embedded-form"
 
 // Configure your endpoint of payment
-const options = {
-    clientSrc: 'https://api.payzen.eu',
+const setup = {
+    clientDomain: 'https://api.payzen.eu',
     theme: "classic",
     publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
 };
 
-Vue.use(LyraForm, options);
+Vue.use(LyraForm, setup);
 ```
 
 Now, you can add the component to your Vue views or components as:
