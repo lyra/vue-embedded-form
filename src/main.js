@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import LyraForm from './lyra_form'
+import LyraForm from './index'
 
 Vue.config.productionTip = false
 
