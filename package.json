@@ -17,6 +17,10 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!vue-awesome)"
     ],
+    "moduleFileExtensions": [
+        "js",
+        "vue"
+    ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
@@ -80,5 +84,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 9"
-  ]
+  ],
+  "dependencies": {
+    "@vue/cli-plugin-unit-jest": "^3.1.1"
+  }
 }

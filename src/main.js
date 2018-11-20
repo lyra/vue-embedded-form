@@ -5,9 +5,9 @@ import LyraForm from './index'
 Vue.config.productionTip = false
 
 const setup = {
-    clientDomain: 'https://krypton.purebilling.io',
-    theme: "classic",
-    publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5',
+    'kr-client-domain': 'https://krypton.purebilling.io',
+    'kr-theme': "classic",
+    'kr-public-key': '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5',
 }
 
 Vue.use(LyraForm, setup);

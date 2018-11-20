@@ -1,23 +1,5 @@
-
-const themeLoader = (clientDomain, theme, cb) => {
-    if (!theme) return cb();
-
-    // Javascript
-    const themeJS = `${clientDomain}/static/js/krypton-client/V4.0/ext/${theme}.js`;
-    let script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = themeJS;
-    document.getElementsByTagName('body')[0].appendChild(script);
-
-    // CSS
-    const themeCSS = `${clientDomain}/static/js/krypton-client/V4.0/ext/${theme}-reset.css`;
-    let link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = themeCSS;
-    document.getElementsByTagName('body')[0].appendChild(link);
-
-    setTimeout(cb, 0);
-}
+import setupTools from "./tools/setup";
+import themeTools from "./tools/theme";
 
 export default {
     install: (Vue, setup) => {
@@ -118,14 +100,15 @@ export default {
 
         Vue.mixin({
             created() {
-                if(!setup.clientLoaded) {
-                    themeLoader(setup.clientDomain, setup.theme, () => {
+                if(typeof(window.KR_CLIENT_LOADED)=="undefined") {
+                    window.KR_CLIENT_LOADED = true;
+                    setupTools.makeCompatible(setup);
+                    themeTools.loader(setup.clientDomain, setup.theme, () => {
                         // Load the script
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
                         script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
                         script.setAttribute("kr-public-key", setup.publicKey);
-                        setup.clientLoaded = true;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });

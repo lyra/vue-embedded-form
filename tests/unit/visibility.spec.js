@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VisibilityForm from './components/VisibilityForm.vue';
-import LyraForm from '../src/index';
+import LyraForm from '../../src/index';
 import cheerio from "cheerio";
 
 const renderer = require('vue-server-renderer').createRenderer();

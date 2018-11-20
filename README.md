@@ -93,9 +93,22 @@ Example                              | Description
 
 ## Parameters
 
+The allowed configuration parameters are:
+
+* **kr-client-domain**: Sets the endpoint of the library
+* **kr-public-key**: Public key used for the payment
+* **kr-langugage**: Language used on the payment form
+* **kr-post-url-refused**: The URL to POST the payment result when the payment is not successfull
+* **kr-post-url-success**: The URL to POST the payment result when the payment is successfull
+* **kr-clean-on-error**: Disable the security code cleaning after a failed payment
+* **kr-hide-debug-toolbar**: Disables the toolbar (only visible for test public keys)
+* **kr-placeholder-expiry**: Changes the default placeholder of the expiry field
+* **kr-placeholder-pan**: Changes the default placeholder of the pan field
+* **kr-placeholder-security-code**: Changes the default placeholder of the security code field
+
 ### setup parameters
 
-The following parameters are defined when the component is loaded. for example, for **clientDomain**:
+All the **Parameters** are configurable on the setup step adding the value on the corresponding key as the next example:
 
 ```javascript
 // Import the library and get the plugin for Vue2
@@ -103,32 +116,44 @@ import LyraForm from "@lyracom/vue-embedded-form"
 
 // Configure your endpoint of payment
 const setup = {
-    clientDomain: 'https://api.payzen.eu',
+    'kr-client-domain': 'https://api.payzen.eu',
+    'kr-post-url-success': '/post-result',
+    'kr-public-key': '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5',
+    'kr-theme': "classic",
     (...)
 };
 
 Vue.use(LyraForm, setup);
 ```
 
-Avialable parameters are:
-
-parameter         | mandatory | Description
-------------------|-----------|-----------------
-clientDomain      | yes       | javascript client domain name, like https://api.payzen.eu
-theme             | no        | pre-defined theme, like classic or material
-publicKey         | yes       |
-
 ### template parameters
 
-TODO
+All the **Parameters** are configurable on the template step adding the value on the corresponding HTML attribute on the lyra-form component as the next example:
+
+```html
+<lyra-form
+    kr-placeholder-pan="My pan!"
+    kr-hide-debug-toolbar="true"
+    kr-post-url-success="/my-post"
+    ...
+    >
+    ...
+</lyra-form>
+```
 
 ### Runtime parameters
 
-TODO
+All the **Parameters** are configurable on the runtime calling the next KR
+library method:
 
-## Paremeters reference
+```javascript
+KR.setFormConfig({
+    "kr-post-url-success": "/my-post",
+    "kr-placeholder-expiry": "My expiration date",
+});
+```
 
-### theme
+### Theme
 
 The theme property can be configured on the setup object argument of the
 LyraForm plugin. Available themes are:

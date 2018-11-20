@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import SimpleForm from './components/SimpleForm.vue';
-import LyraForm from '../src/index';
+import EmptyForm from './components/EmptyForm.vue';
+import LyraForm from '../../src/index';
 import cheerio from "cheerio";
 
 const renderer = require('vue-server-renderer').createRenderer();
@@ -13,12 +13,9 @@ const setup = {
 
 Vue.use(LyraForm, setup);
 
-/**
- * ./node_modules/jest/bin/jest.js simple_form.spec.js
- */
-describe('Test suite for simple payment form', () => {
-    it("Should render the configured form if token is defined", done => {
-        const ClonedComponent = Vue.extend(SimpleForm);
+describe('Test suite for empty payment form', () => {
+    it("Should render the configured form without fields if token is defined", done => {
+        const ClonedComponent = Vue.extend(EmptyForm);
         const NewComponent = new ClonedComponent({
             data() {
                 return {
@@ -34,27 +31,14 @@ describe('Test suite for simple payment form', () => {
             let $form = $(".kr-embedded");
 
             expect($form.length).toBe(1);
-            expect($form.find(".kr-pan").length).toBe(1);
-            expect($form.find(".kr-expiry").length).toBe(1);
-            expect($form.find(".kr-security-code").length).toBe(1);
             expect($form.find(".kr-payment-button").length).toBe(1);
-
-            // By default is visible
-            let form = NewComponent.$children[0];
-            let props = form._props;
-
-            expect(props.isVisible).toBe(true);
-
-            let $embeddedForm = form.$el;
-            let style = $embeddedForm.getAttribute("style");
-            expect(/opacity\:\s1/.test(style)).toBe(true);
 
             done();
         });
     });
 
     it("Should not render the configured form if token is not defined", done => {
-        const ClonedComponent = Vue.extend(SimpleForm);
+        const ClonedComponent = Vue.extend(EmptyForm);
         const NewComponent = new ClonedComponent({
         }).$mount();
 
@@ -70,3 +54,4 @@ describe('Test suite for simple payment form', () => {
         });
     });
 });
+
