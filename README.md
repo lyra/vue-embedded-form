@@ -8,6 +8,8 @@
     - [Component as Pug](#with-pug)
 - [Configuration](#configuration)
 
+[![Build Status](https://travis-ci.org/lyra/vue-embbeded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embbeded-form)
+
 ## Installation
 
 Add the next package to your library:
