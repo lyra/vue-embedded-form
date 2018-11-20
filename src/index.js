@@ -25,24 +25,44 @@ export default {
             name: "lyra-form",
             render: function (createElement) {
                 if(this.active) {
-                    return createElement(
-                        'div',
-                        {
-                            class: { 'kr-embedded': true },
-                            props: { 'krFormToken': this.krFormToken },
+                    let confEmbedded = {
+                        class: { 'kr-embedded': true },
+                        props: { 'krFormToken': this.krFormToken },
+                    };
+
+                    let confWrapper = {
+                        style: {
+                            opacity: (!this.isVisible) ? '0':'1',
                         },
-                        this.$slots.default
+                    };
+
+                    return createElement(
+                        'div', confWrapper, [
+                            createElement('div', confEmbedded, this.$slots.default),
+                        ]
                     );
                 }
             },
-            props: [
-                "krClientSrc", "krPublicKey", "krPostUrlSuccess", "krLanguage", "krFormToken",
-                "krTheme",
-            ],
+            props: {
+                krClientSrc: String,
+                krPublicKey: String,
+                krPostUrlSuccess: String,
+                krLanguage: String,
+                krFormToken: String,
+                krTheme: String,
+                isVisible: {
+                    type: Boolean,
+                    default: true,
+                    required: false,
+                },
+            },
             computed: {
                 active: function() {
                     return (this.krFormToken);
                 }
+            },
+            created() {
+                if (typeof(this.isVisible) != "boolean") this.isVisible = true;
             },
             mounted() {
                 if(this.active) this.setupForm();

@@ -39,7 +39,7 @@
     "url": "https://github.com/lyra/vue-embedded-form/issues"
   },
   "homepage": "https://github.com/lyra/vue-embedded-form#readme",
-  "dependencies": {
+  "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
     "@vue/cli-service": "^3.1.4",
