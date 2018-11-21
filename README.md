@@ -99,7 +99,7 @@ Example                              | Description
 The allowed configuration parameters are:
 
 Parameter                            | Description                                                  | Setup    | Template  | Runtime  |
--------------------------------------|--------------------------------------------------------------|----------|-----------|----------|
+-------------------------------------|--------------------------------------------------------------|:--------:|:---------:|:--------:|
 kr-client-domain                     | Sets the endpoint of the library                             | &#10003; | &#10060;  | &#10060; |
 kr-public-key                        | Public key used for the payment                              | &#10003; | &#10060;  | &#10060; |
 kr-language                          | Language used on the payment form                            | &#10003; | &#10003;  | &#10003; |
