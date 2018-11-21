@@ -26,7 +26,7 @@ describe('Clear on error configuration', () => {
         }).$mount();
 
         renderer.renderToString(NewComponent, (err, str) => {
-            expect(Vue.__kr__script.getAttribute("kr-clear-on-error")).toBe("false");
+            expect(window.__kr__script.getAttribute("kr-clear-on-error")).toBe("false");
             done();
         });
     });

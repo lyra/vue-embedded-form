@@ -22,7 +22,7 @@ describe('Toolbar visibility configuration configuration', () => {
         const NewComponent = new ClonedComponent().$mount();
 
         renderer.renderToString(NewComponent, (err, str) => {
-            expect(Vue.__kr__script.getAttribute("kr-hide-debug-toolbar")).toBe("true");
+            expect(window.__kr__script.getAttribute("kr-hide-debug-toolbar")).toBe("true");
             done();
         });
     });

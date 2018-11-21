@@ -109,19 +109,30 @@ export default {
                         // Load the script
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
-                        script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+
+                        let hasHttp = /^http.+$/.test(setup.clientDomain);
+                        let hasScript = /kr-payment-form.min.js/.test(setup.clientDomain);
+                        if (hasHttp && hasScript) {
+                            script.src = setup.clientDomain;
+                        } else {
+                            script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+                        }
+
                         script.setAttribute("kr-public-key", setup.publicKey);
 
-                        // Parameters extra on the script
-                        if (setup.hasOwnProperty("kr-clear-on-error")) {
-                            script.setAttribute("kr-clear-on-error", setup["kr-clear-on-error"]);
-                        }
+                        let propagationKeys = [
+                            "kr-clear-on-error",
+                            "kr-hide-debug-toolbar",
+                            "kr-form-token",
+                        ];
 
-                        if (setup.hasOwnProperty("kr-hide-debug-toolbar")) {
-                            script.setAttribute("kr-hide-debug-toolbar", setup["kr-hide-debug-toolbar"]);
-                        }
+                        propagationKeys.forEach(propKey => {
+                            if (setup.hasOwnProperty(propKey)) {
+                                script.setAttribute(propKey, setup[propKey]);
+                            }
+                        });
 
-                        Vue.__kr__script = script;
+                        window.__kr__script = script;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });

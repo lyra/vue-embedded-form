@@ -18,8 +18,8 @@
       "/node_modules/(?!vue-awesome)"
     ],
     "moduleFileExtensions": [
-        "js",
-        "vue"
+      "js",
+      "vue"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
@@ -83,9 +83,11 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 9"
+    "not ie <= 9",
+    "ie 10"
   ],
   "dependencies": {
-    "@vue/cli-plugin-unit-jest": "^3.1.1"
+    "@vue/cli-plugin-unit-jest": "^3.1.1",
+    "vue-router": "^3.0.1"
   }
 }
