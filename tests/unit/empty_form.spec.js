@@ -13,6 +13,9 @@ const setup = {
 
 Vue.use(LyraForm, setup);
 
+/**
+ * ./node_modules/jest/bin/jest.js empty_form.spec.js
+ */
 describe('Test suite for empty payment form', () => {
     it("Should render the configured form without fields if token is defined", done => {
         const ClonedComponent = Vue.extend(EmptyForm);

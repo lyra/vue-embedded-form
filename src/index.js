@@ -9,7 +9,9 @@ export default {
                 if(this.active) {
                     let confEmbedded = {
                         class: { 'kr-embedded': true },
-                        props: { 'krFormToken': this.krFormToken },
+                        props: {
+                            'krFormToken': this.krFormToken,
+                        },
                     };
 
                     let confWrapper = {
@@ -109,6 +111,17 @@ export default {
                         script.type = 'text/javascript';
                         script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
                         script.setAttribute("kr-public-key", setup.publicKey);
+
+                        // Parameters extra on the script
+                        if (setup.hasOwnProperty("kr-clear-on-error")) {
+                            script.setAttribute("kr-clear-on-error", setup["kr-clear-on-error"]);
+                        }
+
+                        if (setup.hasOwnProperty("kr-hide-debug-toolbar")) {
+                            script.setAttribute("kr-hide-debug-toolbar", setup["kr-hide-debug-toolbar"]);
+                        }
+
+                        Vue.__kr__script = script;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });
