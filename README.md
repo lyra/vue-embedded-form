@@ -1,6 +1,6 @@
 # Vue Embedded Form
 
-[![Build Status](https://travis-ci.org/lyra/vue-embedded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embbeded-form)
+[![Build Status](https://travis-ci.org/lyra/vue-embedded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embedded-form)
 
 - [Installation](#installation)
     - [Installation with Yarn](#with-yarn)
