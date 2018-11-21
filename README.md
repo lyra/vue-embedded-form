@@ -102,7 +102,7 @@ The allowed configuration parameters are:
 * **kr-langugage**: Language used on the payment form
 * **kr-post-url-refused**: The URL to POST the payment result when the payment is not successfull
 * **kr-post-url-success**: The URL to POST the payment result when the payment is successfull
-* **kr-clean-on-error**: Disable the security code cleaning after a failed payment
+* **kr-clear-on-error**: Disable the security code cleaning after a failed payment
 * **kr-hide-debug-toolbar**: Disables the toolbar (only visible for test public keys)
 * **kr-placeholder-expiry**: Changes the default placeholder of the expiry field
 * **kr-placeholder-pan**: Changes the default placeholder of the pan field
