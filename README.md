@@ -1,5 +1,7 @@
 # Vue Embedded Form
 
+[![Build Status](https://travis-ci.org/lyra/vue-embedded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embbeded-form)
+
 - [Installation](#installation)
     - [Installation with Yarn](#with-yarn)
     - [Installation with NPM](#with-npm)
@@ -8,7 +10,6 @@
     - [Component as Pug](#with-pug)
 - [Configuration](#configuration)
 
-[![Build Status](https://travis-ci.org/lyra/vue-embbeded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embbeded-form)
 
 ## Installation
 
