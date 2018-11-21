@@ -98,16 +98,18 @@ Example                              | Description
 
 The allowed configuration parameters are:
 
-* **kr-client-domain**: Sets the endpoint of the library
-* **kr-public-key**: Public key used for the payment
-* **kr-langugage**: Language used on the payment form
-* **kr-post-url-refused**: The URL to POST the payment result when the payment is not successfull
-* **kr-post-url-success**: The URL to POST the payment result when the payment is successfull
-* **kr-clear-on-error**: Disable the security code cleaning after a failed payment
-* **kr-hide-debug-toolbar**: Disables the toolbar (only visible for test public keys)
-* **kr-placeholder-expiry**: Changes the default placeholder of the expiry field
-* **kr-placeholder-pan**: Changes the default placeholder of the pan field
-* **kr-placeholder-security-code**: Changes the default placeholder of the security code field
+Parameter                            | Description                                                  | Setup    | Template  | Runtime  |
+-------------------------------------|--------------------------------------------------------------|----------|-----------|----------|
+kr-client-domain                     | Sets the endpoint of the library                             | &#10003; | &#10060;  | &#10060; |
+kr-public-key                        | Public key used for the payment                              | &#10003; | &#10060;  | &#10060; |
+kr-language                          | Language used on the payment form                            | &#10003; | &#10003;  | &#10003; |
+kr-post-url-success                  | The URL to POST on successfull payment                       | &#10003; | &#10003;  | &#10003; |
+kr-post-url-refused                  | The URL to POST on failed payment                            | &#10003; | &#10003;  | &#10003; |
+kr-clear-on-error                    | Disable the security code cleaning after a failed payment    | &#10003; | &#10003;  | &#10003; |
+kr-hide-debug-toolbar                | Disables the toolbar (only visible for test public keys)     | &#10003; | &#10003;  | &#10003; |
+kr-placeholder-expiry                | Changes the default placeholder of the expiry field          | &#10060; | &#10003;  | &#10003; |
+kr-placeholder-pan                   | Changes the default placeholder of the pan field             | &#10060; | &#10003;  | &#10003; |
+kr-placeholder-security-code         | Changes the default placeholder of the security code field   | &#10060; | &#10003;  | &#10003; |
 
 ### setup parameters
 
@@ -131,7 +133,7 @@ Vue.use(LyraForm, setup);
 
 ### template parameters
 
-All the **Parameters** are configurable on the template step adding the value on the corresponding HTML attribute on the lyra-form component as the next example:
+All the **Parameters** enabled for templates are configurable on the template step adding the value on the corresponding HTML attribute on the lyra-form component as the next example:
 
 ```html
 <lyra-form
@@ -146,7 +148,7 @@ All the **Parameters** are configurable on the template step adding the value on
 
 ### Runtime parameters
 
-All the **Parameters** are configurable on the runtime calling the next KR
+All the **Parameters** enabled for runtime are configurable on the runtime calling the next KR *setFormConfig*
 library method:
 
 ```javascript
