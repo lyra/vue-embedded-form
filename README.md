@@ -1,6 +1,7 @@
 # Vue Embedded Form
 
 [![Build Status](https://travis-ci.org/lyra/vue-embedded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embedded-form)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/lyra/vue-embedded-form/blob/master/LICENSE)
 
 - [Installation](#installation)
     - [Installation with Yarn](#with-yarn)
@@ -107,9 +108,9 @@ kr-post-url-success                  | The URL to POST on successfull payment   
 kr-post-url-refused                  | The URL to POST on failed payment                            | &#10003; | &#10003;  | &#10003; |
 kr-clear-on-error                    | Disable the security code cleaning after a failed payment    | &#10003; | &#10003;  | &#10003; |
 kr-hide-debug-toolbar                | Disables the toolbar (only visible for test public keys)     | &#10003; | &#10003;  | &#10003; |
-kr-placeholder-expiry                | Changes the default placeholder of the expiry field          | &#10060; | &#10003;  | &#10003; |
-kr-placeholder-pan                   | Changes the default placeholder of the pan field             | &#10060; | &#10003;  | &#10003; |
-kr-placeholder-security-code         | Changes the default placeholder of the security code field   | &#10060; | &#10003;  | &#10003; |
+kr-placeholder-expiry                | Changes the default placeholder of the expiry field          | &#10003; | &#10003;  | &#10003; |
+kr-placeholder-pan                   | Changes the default placeholder of the pan field             | &#10003; | &#10003;  | &#10003; |
+kr-placeholder-security-code         | Changes the default placeholder of the security code field   | &#10003; | &#10003;  | &#10003; |
 
 ### setup parameters
 

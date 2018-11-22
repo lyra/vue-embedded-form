@@ -1,4 +1,4 @@
-# contribute
+# Contribute
 
 We need to create new components for other framekworks. This document
 describes the stuff to get a full featured repository.
@@ -23,7 +23,7 @@ You should add widely used badges:
 - build pass (with tests, from travis)
 - licence badge
 
-## component configuration
+## Component configuration
 
 There are 3 configuration levels you should provide and test.
 See vue.js readme file sections:

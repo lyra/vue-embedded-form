@@ -104,26 +104,22 @@ export default {
             created() {
                 if(typeof(window.KR_CLIENT_LOADED)=="undefined") {
                     window.KR_CLIENT_LOADED = true;
-                    setupTools.makeCompatible(setup);
                     themeTools.loader(setup.clientDomain, setup.theme, () => {
                         // Load the script
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
 
-                        let hasHttp = /^http.+$/.test(setup.clientDomain);
-                        let hasScript = /kr-payment-form.min.js/.test(setup.clientDomain);
-                        if (hasHttp && hasScript) {
-                            script.src = setup.clientDomain;
+                        if (/^http.+kr-payment-min\.js.*$/.test()) {
+                            script.src = setup["kr-client-domain"];
                         } else {
-                            script.src = `${setup.clientDomain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+                            script.src = `${setup['kr-client-domain']}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
                         }
-
-                        script.setAttribute("kr-public-key", setup.publicKey);
 
                         let propagationKeys = [
                             "kr-clear-on-error",
                             "kr-hide-debug-toolbar",
                             "kr-form-token",
+                            "kr-public-key",
                             "kr-post-url-success",
                         ];
 
@@ -132,6 +128,8 @@ export default {
                                 script.setAttribute(propKey, setup[propKey]);
                             }
                         });
+
+                        window.__kr__script = script;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });
