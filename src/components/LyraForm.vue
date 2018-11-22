@@ -10,6 +10,7 @@
              :kr-placeholder-pan="krPlaceholderPan"
              :kr-placeholder-security-code="krPlaceholderSecurityCode"
              :kr-form-token="krFormToken">
+            <slot></slot>
         </div>
     </div>
 </template>
