@@ -9,7 +9,7 @@ export default {
             created() {
                 if(typeof(window.KR_CLIENT_LOADED)=="undefined") {
                     window.KR_CLIENT_LOADED = true;
-                    themeTools.loader(setup.clientDomain, setup.theme, () => {
+                    themeTools.loader(setup["kr-client-domain"], setup["kr-theme"], () => {
                         // Load the script
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
