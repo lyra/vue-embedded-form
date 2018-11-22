@@ -2,9 +2,9 @@
     <div class="wrapper">
         <lyra-form
          :kr-form-token="formToken"
-         kr-post-url-success="paid.php"
-         kr-language="fr-FR"
-         kr-theme="classic"
+         :kr-post-url-success="postUrlSuccess"
+         :kr-language="language"
+         :kr-theme="theme"
          >
          <div class="kr-pan"></div>
          <div class="kr-expiry"></div>
@@ -22,6 +22,9 @@ export default {
     data() {
         return {
             formToken: null,
+            postUrlSuccess: "paid.php",
+            language: "de_DE",
+            theme: "classic",
         };
     }
 };

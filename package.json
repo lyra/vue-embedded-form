@@ -4,7 +4,7 @@
   "description": "Vue Lyra embedded form",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -15,7 +15,7 @@
       "__DEV__": true
     },
     "coveragePathIgnorePatterns": [
-        "/tests/"
+      "/tests/"
     ],
     "transformIgnorePatterns": [
       "/node_modules/(?!vue-awesome)"
@@ -50,6 +50,7 @@
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
     "@vue/cli-service": "^3.1.4",
+    "@vue/test-utils": "^1.0.0-beta.25",
     "babel-eslint": "^10.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "cheerio": "^1.0.0-rc.2",
@@ -63,7 +64,9 @@
     "vue": "^2.5.17",
     "vue-jest": "^3.0.0",
     "vue-server-renderer": "^2.5.17",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "@vue/cli-plugin-unit-jest": "^3.1.1",
+    "vue-router": "^3.0.1"
   },
   "eslintConfig": {
     "root": true,
@@ -90,7 +93,5 @@
     "ie 10"
   ],
   "dependencies": {
-    "@vue/cli-plugin-unit-jest": "^3.1.1",
-    "vue-router": "^3.0.1"
   }
 }

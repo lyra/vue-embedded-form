@@ -1,105 +1,10 @@
 import setupTools from "./tools/setup";
 import themeTools from "./tools/theme";
+import LyraForm from "./components/LyraForm.vue";
 
 export default {
     install: (Vue, setup) => {
-        Vue.component('lyra-form', {
-            name: "lyra-form",
-            render: function (createElement) {
-                if(this.active) {
-                    let confEmbedded = {
-                        class: { 'kr-embedded': true },
-                        props: {
-                            'krFormToken': this.krFormToken,
-                        },
-                    };
-
-                    let confWrapper = {
-                        style: {
-                            opacity: (!this.isVisible) ? '0':'1',
-                        },
-                    };
-
-                    return createElement(
-                        'div', confWrapper, [
-                            createElement('div', confEmbedded, this.$slots.default),
-                        ]
-                    );
-                }
-            },
-            props: {
-                krClientSrc: String,
-                krPublicKey: String,
-                krPostUrlSuccess: String,
-                krLanguage: String,
-                krFormToken: String,
-                krTheme: String,
-                isVisible: {
-                    type: Boolean,
-                    default: true,
-                    required: false,
-                },
-            },
-            computed: {
-                active: function() {
-                    return (this.krFormToken);
-                }
-            },
-            created() {
-                if (typeof(this.isVisible) != "boolean") this.isVisible = true;
-            },
-            mounted() {
-                if(this.active) this.setupForm();
-            },
-            beforeDestroy() {
-                if(this.krTheme) this.cleanDeps();
-            },
-            watch: {
-                active: function(newVal) {
-                    if(newVal) this.setupForm();
-                }
-            },
-            methods: {
-                setupForm() {
-                    const _this = this;
-
-                    if(window.hasOwnProperty('KR')) {
-                        window.KR.onFormReady(() => {
-                            _this.setConfig();
-                        });
-                    } else {
-                        // Wait until the library is loaded
-                        const checkInterval = setInterval(() => {
-                            if(window.hasOwnProperty('KR')) {
-                                _this.setupForm();
-                                clearInterval(checkInterval);
-                            }
-                        }, 50);
-                    }
-                },
-                setConfig() {
-                    let formConfig = {
-                        'formToken': this.krFormToken
-                    };
-                    if(this.krTheme) this.setupTheme();
-                    if(this.krPublicKey) formConfig['publicKey'] = this.krPublicKey;
-                    if(this.krLanguage) formConfig['language'] = this.krLanguage;
-                    //if(this.krPostUrlSuccess) formConfig['postUrlSuccess'] = this.krPostUrlSuccess;
-
-                    // Wait until everything is loaded
-                    let loadCheckInterval = setInterval(() => {
-                        if(document.readyState === 'complete') {
-                            clearInterval(loadCheckInterval);
-                            KR.setFormConfig(formConfig);
-                        }
-                    }, 25);
-                },
-                setupTheme() {
-                    themeLoader(setup.clientDomain, this.krTheme, function() {});
-                }
-            }
-        })
-
+        Vue.component("lyra-form", LyraForm);
         Vue.mixin({
             created() {
                 if(typeof(window.KR_CLIENT_LOADED)=="undefined") {
@@ -121,6 +26,10 @@ export default {
                             "kr-form-token",
                             "kr-public-key",
                             "kr-post-url-success",
+                            "kr-language",
+                            "kr-placeholder-expiry",
+                            "kr-placeholder-pan",
+                            "kr-placeholder-security-code",
                         ];
 
                         propagationKeys.forEach(propKey => {
