@@ -124,6 +124,7 @@ export default {
                             "kr-clear-on-error",
                             "kr-hide-debug-toolbar",
                             "kr-form-token",
+                            "kr-post-url-success",
                         ];
 
                         propagationKeys.forEach(propKey => {
@@ -131,8 +132,6 @@ export default {
                                 script.setAttribute(propKey, setup[propKey]);
                             }
                         });
-
-                        window.__kr__script = script;
 
                         document.getElementsByTagName('body')[0].appendChild(script);
                     });
