@@ -54,7 +54,9 @@ export default {
 
                         // Wait for it ...
                         whenDefined(window, 'KR', () => {
-                            whenDefined(window.KR, "onFormCreated", kr.triggerReady);
+                            whenDefined(window.KR, "onFormReady", () => {
+                                kr.triggerReady();
+                            });
                         });
                     });
                 }
