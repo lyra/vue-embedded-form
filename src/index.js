@@ -20,7 +20,7 @@ export default {
 
                         let domain = setup["kr-client-domain"];
 
-                        if (/^http.+$/.test(domain)) {
+                        if (/^http.+\.js.*$/.test(domain)) {
                             script.src = domain;
                         } else {
                             script.src = `${domain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
