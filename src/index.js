@@ -2,35 +2,15 @@ import setupTools from './tools/setup';
 import themeTools from './tools/theme';
 import whenDefined from './tools/whenDefined';
 import LyraForm from './components/LyraForm.vue';
-
-let accumulatedCallbacks = {};
-let accumulator = (name, args) => {
-    if (!accumulatedCallbacks.hasOwnProperty(name)) accumulatedCallbacks[name] = [];
-    accumulatedCallbacks[name].push([name, args]);
-};
-
-let accumulatorCallAll = newAccumulator => {
-    let accKeys = Object.keys(accumulatedCallbacks);
-    accKeys.forEach(key => {
-        let items = accumulatedCallbacks[key];
-        items.forEach(item => {
-            newAccumulator(...item);
-        });
-    });
-};
+import kr from './service/kr';
 
 export default {
     install: (Vue, setup) => {
         Vue.component('lyra-form', LyraForm);
         Vue.mixin({
-            beforeCreate() {
-                this.$kr = {
-                    setFormConfig(configuration) {
-                        accumulator('setFormConfig', configuration);
-                    },
-                };
-            },
             created() {
+                this.$kr = kr;
+
                 if (typeof window.KR_CLIENT_LOADED == 'undefined') {
                     window.KR_CLIENT_LOADED = true;
                     themeTools.loader(setup['kr-client-domain'], setup['kr-theme'], () => {
@@ -38,10 +18,12 @@ export default {
                         let script = document.createElement('script');
                         script.type = 'text/javascript';
 
-                        if (/^http.+kr-payment-min\.js.*$/.test()) {
-                            script.src = setup['kr-client-domain'];
+                        let domain = setup["kr-client-domain"];
+
+                        if (/^http.+$/.test(domain)) {
+                            script.src = domain;
                         } else {
-                            script.src = `${setup['kr-client-domain']}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
+                            script.src = `${domain}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js`;
                         }
 
                         let propagationKeys = [
@@ -66,12 +48,7 @@ export default {
                         document.getElementsByTagName('body')[0].appendChild(script);
 
                         // Wait for it ...
-                        whenDefined(window, 'KR', () => {
-                            accumulator = (name, args) => {
-                                window.KR[name](args);
-                            };
-                            accumulatorCallAll(accumulator);
-                        });
+                        whenDefined(window, 'KR', kr.triggerReady);
                     });
                 }
             },

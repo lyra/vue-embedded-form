@@ -92,6 +92,5 @@
     "not ie <= 9",
     "ie 10"
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }

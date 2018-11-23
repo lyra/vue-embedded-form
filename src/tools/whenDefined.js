@@ -7,4 +7,6 @@ export default (context, variableName, cb, interval=50) => {
             setTimeout(checkVariable, interval);
         }
     }
+
+    setTimeout(checkVariable, 0);
 }
