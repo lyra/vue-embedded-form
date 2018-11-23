@@ -53,7 +53,9 @@ export default {
                         document.getElementsByTagName('body')[0].appendChild(script);
 
                         // Wait for it ...
-                        whenDefined(window, 'KR', kr.triggerReady);
+                        whenDefined(window, 'KR', () => {
+                            whenDefined(window.KR, "onFormCreated", kr.triggerReady);
+                        });
                     });
                 }
             },

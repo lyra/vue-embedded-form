@@ -10,6 +10,8 @@ let accumulator = (name, args) => {
                 window.KR_CONFIGURATION[key] = args[key];
             });
             break;
+        case "setFormToken":
+            break;
         default:
             accumulatedCallbacks[name].push([name, args]);
             break;
@@ -32,9 +34,12 @@ export default {
     setFormConfig(configuration) {
         accumulator('setFormConfig', configuration);
     },
+    setFormToken(token) {
+        accumulator('setFormToken', token);
+    },
     triggerReady() {
         accumulator = (name, args) => {
-            window.KR[name](args);
+            return window.KR[name](args);
         };
 
         // Call previous calls and close the accumulator
