@@ -5,6 +5,22 @@ describes the stuff to get a full featured repository.
 
 Licence is MIT.
 
+## Context
+
+We provide a library to add a payment form easily on your web-site.
+This library is always loaded from our servers. you can't add it directly
+in your build system (like webpack).
+
+To make the developer life easier, we provide components for the well known
+javascript frameworks like angular, react and vue.js.
+
+The component helps the developer to integrate easily the payment form
+in the target framework. We try to stick to the framework philosophy a much
+as possible, and hide the complexity of using an external library.
+
+For the developer point of view, everything should work like a standard
+integration will all libraries packed in your application.
+
 ## Basic stuff
 
 The repository contains the source code for a component to use the Lyra
@@ -24,11 +40,19 @@ You should add widely used badges:
 
 ## Component configuration
 
-There are 3 configuration levels you should provide and test.
+There are 2 configuration levels you should provide and test.
 See vue.js readme file sections:
 
 - setup parameters
 - template parameters
+
+There is also the runtime configuration for the library. This should be provided
+as an interface inside the framework with the best practices of the target
+framework.
+
+As an example, on the Vue2 component development, a singleton service
+inside every component instance is provided to help the developer to
+communicate easily with the client library within their components.
 
 ## Examples
 
