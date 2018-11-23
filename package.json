@@ -1,6 +1,6 @@
 {
   "name": "@lyracom/vue-embedded-form",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Vue Lyra embedded form",
   "main": "src/index.js",
   "scripts": {
