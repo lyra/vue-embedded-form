@@ -12,16 +12,15 @@ embedded payment form.
 
 The repository should allow to:
 
-- easily develop the component
-- allow to run, build and test using docker and docker-compose
-- tests should run on travis automatically
-- a CHANGELOG.md
+- Easily develop the component
+- Allow to run, build and unitary test the plugin/extension
+- Tests should run on travis automatically on every commit
+- A CHANGELOG.md
 
 You should add widely used badges:
 
-- test coverage
-- build pass (with tests, from travis)
-- licence badge
+- Build pass (with tests, from travis)
+- Licence badge
 
 ## Component configuration
 
@@ -30,7 +29,6 @@ See vue.js readme file sections:
 
 - setup parameters
 - template parameters
-- runtime parameters
 
 ## Examples
 
