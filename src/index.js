@@ -38,11 +38,16 @@ export default {
                             'kr-placeholder-security-code',
                         ];
 
+                        let globalConfiguration = {};
+
                         propagationKeys.forEach(propKey => {
                             if (setup.hasOwnProperty(propKey)) {
                                 script.setAttribute(propKey, setup[propKey]);
+                                globalConfiguration[propKey] = setup[propKey];
                             }
                         });
+
+                        kr.reportGlobalConfiguration(globalConfiguration);
 
                         window.__kr__script = script;
                         document.getElementsByTagName('body')[0].appendChild(script);

@@ -26,6 +26,8 @@ let accumulatorCallAll = newAccumulator => {
     });
 };
 
+let globalConfiguration = {};
+
 export default {
     setFormConfig(configuration) {
         accumulator('setFormConfig', configuration);
@@ -38,4 +40,31 @@ export default {
         // Call previous calls and close the accumulator
         accumulatorCallAll(accumulator);
     },
+    reportGlobalConfiguration(conf) {
+        let confKeys = Object.keys(conf);
+        confKeys.forEach(key => {
+            globalConfiguration[key] = conf[key];
+        });
+    },
+    getGlobalConfiguration() {
+        return globalConfiguration;
+    },
+    normalize(from, to, value="") {
+        if (from.toLowerCase() == "kebabcase") {
+            if (to.toLowerCase() == "pascalcase") {
+                let converter = m => {
+                    return m[1].toUpperCase();
+                }
+                return value.replace(/(\-\w)/g, function(m){return m[1].toUpperCase();});
+            } else if(to.toLowerCase() == "camelcase") {
+                let converter = m => {
+                    return m[1].toUpperCase();
+                }
+                let camelValue = value.replace(/(\-\w)/g, function(m){return m[1].toUpperCase();});
+                return camelValue.charAt(0).toUpperCase() + camelValue.slice(1);
+            }
+        }
+
+        return value;
+    }
 };
