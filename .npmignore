@@ -1,0 +1,12 @@
+docker*
+dist
+specs
+public
+src/assets
+src/App.vue
+src/main.js
+vue.config.js
+package-lock.json
+compile.sh
+*babel*
+*travis*
