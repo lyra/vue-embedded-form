@@ -38,9 +38,9 @@ import LyraForm from "@lyracom/vue-embedded-form"
 
 //define component setup options
 const setup = {
-    clientDomain: 'https://api.payzen.eu',
-    theme: "classic",
-    publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
+    'kr-client-domain': 'https://api.payzen.eu',
+    'kr-theme': "classic",
+    'kr-public-key': '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
 };
 
 Vue.use(LyraForm, setup);
