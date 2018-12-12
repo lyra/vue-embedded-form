@@ -32,6 +32,7 @@ export default {
                             'kr-form-token',
                             'kr-public-key',
                             'kr-post-url-success',
+                            'kr-popin',
                             'kr-language',
                             'kr-placeholder-expiry',
                             'kr-placeholder-pan',
