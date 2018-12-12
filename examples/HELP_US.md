@@ -15,11 +15,14 @@ To make the developer life easier, we provide components for the well known
 javascript frameworks like angular, react and vue.js.
 
 The component helps the developer to integrate easily the payment form
-in the target framework. We try to stick to the framework philosophy a much
-as possible, and hide the complexity of using an external library.
+in the target framework. We try to stick to the framework philosophy as much
+as possible, and hide the complexity about using an external library.
 
 For the developer point of view, everything should work like a standard
 integration will all libraries packed in your application.
+
+The component is compiled with the developer packer. but the core library
+is loaded dynamically.
 
 ## Basic stuff
 
@@ -28,10 +31,11 @@ embedded payment form.
 
 The repository should allow to:
 
-- Easily develop the component
+- Easily develop the component for maintainers
 - Allow to run, build and unitary test the plugin/extension
 - Tests should run on travis automatically on every commit
 - A CHANGELOG.md
+- a github integration documentation
 
 You should add widely used badges:
 
@@ -40,19 +44,30 @@ You should add widely used badges:
 
 ## Component configuration
 
-There are 2 configuration levels you should provide and test.
-See vue.js readme file sections:
+There are 3 configuration levels you should provide and test.
+See vue.js readme file:
 
 - setup parameters
 - template parameters
+- runtime parameters
 
-There is also the runtime configuration for the library. This should be provided
-as an interface inside the framework with the best practices of the target
-framework.
+Every calls should work even if the underlayer library is not loaded.
 
 As an example, on the Vue2 component development, a singleton service
-inside every component instance is provided to help the developer to
-communicate easily with the client library within their components.
+takes place in every component instance to accumulate parameters before
+the underlayer library is loaded. When loaded, setup, template and runtime
+parameters are applied.
+
+## About themes
+
+To apply a theme, you should dynamically load 2 others external components:
+
+- a css file
+- a js file
+
+Take care about the potential css flickering !!!!
+
+see vue.js component for more details.
 
 ## Examples
 

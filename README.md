@@ -159,7 +159,7 @@ KR.setFormConfig({
 });
 ```
 
-### Theme
+### Themes
 
 The theme property can be configured on the setup object argument of the
 LyraForm plugin. Available themes are:
