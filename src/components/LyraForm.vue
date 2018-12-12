@@ -6,6 +6,7 @@
              :kr-clear-on-error="krClearOnError"
              :kr-post-url-success="krPostUrlSuccess"
              :kr-post-url-refused="krPostUrlRefused"
+             :kr-popin="krPopin"
              :kr-placeholder-expiry="krPlaceholderExpiry"
              :kr-placeholder-pan="krPlaceholderPan"
              :kr-placeholder-security-code="krPlaceholderSecurityCode"
@@ -38,6 +39,11 @@ export default {
         krPlaceholderExpiry: String,
         krPlaceholderPan: String,
         krPlaceholderSecurityCode: String,
+        krPopin: {
+            type: Boolean,
+            default: false,
+            required: false,
+        },
         isVisible: {
             type: Boolean,
             default: true,
