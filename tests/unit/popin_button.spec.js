@@ -18,4 +18,16 @@ describe('Test suite for popin-button property', () => {
         expect($form.attributes()['kr-popin-button']).toBe("true");
         done();
     });
+
+    it("If it not defined, the popin button param should be false", done => {
+        const wrapper = mount(LyraForm, {
+            propsData: {}
+        });
+
+        // the form is rendered
+        const $form = wrapper.find(".kr-embedded");
+
+        expect($form.attributes()['kr-popin-button']).toBe("false");
+        done();
+    });
 });
