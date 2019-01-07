@@ -112,6 +112,8 @@ kr-placeholder-expiry                | Changes the default placeholder of the ex
 kr-placeholder-pan                   | Changes the default placeholder of the pan field             | &#10003; | &#10003;  | &#10003; |
 kr-placeholder-security-code         | Changes the default placeholder of the security code field   | &#10003; | &#10003;  | &#10003; |
 kr-popin                             | If true, payment form is displayed inside a pop-in           | &#10003; | &#10003;  | &#10060; |
+kr-popin-button                      | If true, the library generates a popin button                | &#10060; | &#10003;  | &#10060; |
+kr-form-id                           | Sets the form ID                                             | &#10060; | &#10003;  | &#10060; |
 
 ### setup parameters
 
