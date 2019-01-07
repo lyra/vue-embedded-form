@@ -7,7 +7,7 @@
              :kr-post-url-success="krPostUrlSuccess"
              :kr-post-url-refused="krPostUrlRefused"
              :kr-popin="krPopin"
-             :kr-popin-button="krPopinButton"
+             :kr-popin-button="krPopinButton.toString()"
              :kr-form-id="krFormId"
              :kr-placeholder-expiry="krPlaceholderExpiry"
              :kr-placeholder-pan="krPlaceholderPan"
@@ -49,7 +49,7 @@ export default {
         },
         krPopinButton: {
             type: Boolean,
-            default: true,
+            default: false,
             required: false,
         },
         isVisible: {
