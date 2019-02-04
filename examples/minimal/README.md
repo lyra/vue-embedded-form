@@ -3,9 +3,11 @@
 This page explain how-to create a dynamic payment form from scratch using
 vue.js and vue-cli.
 
+First, you need to install vue-cli 3: https://cli.vuejs.org/
+
 ## First, create the project
 
-First, create the vue-cli HelloWorld project:
+First, create the vue-cli HelloWorld project (with default values):
 
 ```sh
 vue create vue-embedded-test
@@ -65,7 +67,7 @@ Remove HelloWorld.vue, and add in src/main.js line 3:
 // import the compoment
 import LyraForm from "@lyracom/vue-embedded-form"
 
-//define component setup options
+//define component setup parameters
 const setup = {
 clientDomain: 'https://api.payzen.eu',
 publicKey: '69876357:testpublickey_DEMOPUBLICKEY95me92597fd28tGD4r5'
@@ -107,6 +109,10 @@ In src/App.vue, update div (id=app) to:
     <PaymentForm />
 </div>
 ```
+
+Restart your developement server:
+
+    npm run serve
 
 go to http://localhost:8081/, enjoy.
 

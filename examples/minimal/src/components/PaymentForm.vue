@@ -1,6 +1,7 @@
 <template>
     <lyra-form kr-form-token="DEMO-TOKEN-TO-BE-REPLACED"
             kr-language="en-EN"
+            kr-theme="classic"
             kr-post-url-success="paid.php">
 
         <!-- payment form fields -->
@@ -18,6 +19,6 @@
 
 <script>
 export default {
-  name: 'PaymentForm',
+name: 'PaymentForm',
 }
 </script>
