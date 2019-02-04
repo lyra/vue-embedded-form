@@ -11,10 +11,21 @@
     - [Component as Pug](#with-pug)
 - [Configuration](#configuration)
 
+## Introduction
+
+The **vue-embedded-form** component is a wrapper on top of a payment javascript library. The **vue-embedded-form** component allows to easily add a
+payment form in your single page application. The default payment form looks like:
+
+![payment form](/payment_form.png)
+
+## Before starting
+
+The underlayer javascript library is based on a payment REST API. You need a valid account before starting.
+Please refer to your Payment Service Provider for more details.
 
 ## Installation
 
-Add the next package to your library:
+Add the following package to your library:
 
 ### With Yarn
 
@@ -30,13 +41,15 @@ npm install --save @lyracom/vue-embedded-form
 
 ## Usage
 
-You can add a form to any Vue2 application as follows:
+First, you need to register the **vue-embedded-form** service in your **main.js** file:
 
 ```javascript
+/* src/main.js */
+
 // Import the library and get the plugin for Vue2
 import LyraForm from "@lyracom/vue-embedded-form"
 
-//define component setup options
+//define component setup parameters
 const setup = {
     'kr-client-domain': 'https://api.payzen.eu',
     'kr-theme': "classic",
@@ -46,13 +59,15 @@ const setup = {
 Vue.use(LyraForm, setup);
 ```
 
-Now, you can add the component to your Vue views or components as:
+**note:** setup values are provided as an example. you should contact your Payment Service Provider to get personal keys.
+
+Add the payment form component to any component template like:
 
 ### With HTML
 
 ```html
 <lyra-form kr-form-token="DEMO-TOKEN-TO-BE-REPLACED"
-           kr-language="es-ES"
+           kr-language="en-US"
            kr-post-url-success="paid.php">
 
     <!-- payment form fields -->
@@ -88,7 +103,15 @@ lyra-form(
     .kr-form-error
 ```
 
-## Example
+### About the formToken
+
+To get a working payment form, you need a formToken (defined using **kr-form-token** parameter).
+The formToken is created using Charge/CreatePayment REST web-service. for more details, please refer to
+your Payment Service Provider documentation.
+
+## Examples
+
+Please take a look to your integration example:
 
 Example                              | Description
 ------------------------------------ | ---------------------------------------------------
@@ -115,6 +138,8 @@ kr-popin                             | If true, payment form is displayed inside
 kr-popin-button                      | If true, the library generates a popin button                | &#10060; | &#10003;  | &#10060; |
 kr-form-id                           | Sets the form ID                                             | &#10060; | &#10003;  | &#10060; |
 
+for more details, please refer to your Payment Service Provider documentation.
+
 ### setup parameters
 
 All the **Parameters** are configurable on the setup step adding the value on the corresponding key as the next example:
@@ -135,7 +160,7 @@ const setup = {
 Vue.use(LyraForm, setup);
 ```
 
-### template parameters
+### Template parameters
 
 All the **Parameters** enabled for templates are configurable on the template step adding the value on the corresponding HTML attribute on the lyra-form component as the next example:
 
