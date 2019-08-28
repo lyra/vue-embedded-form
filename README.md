@@ -1,5 +1,7 @@
 # Vue Embedded Form
 
+**DEPRECATED**: go to https://github.com/lyra/embedded-form-glue
+
 [![Build Status](https://travis-ci.org/lyra/vue-embedded-form.svg?branch=develop)](https://travis-ci.org/lyra/vue-embedded-form)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/lyra/vue-embedded-form/blob/master/LICENSE)
 
